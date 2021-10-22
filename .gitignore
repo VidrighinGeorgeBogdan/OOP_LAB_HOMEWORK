@@ -348,3 +348,36 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+Lab3/Lab_T.3.2/cmake-build-debug/
+Lab3/Lab_T.3.2/.idea/
+Lab3/Lab3_T.3.3/cmake-build-debug/
+Lab3/Lab3_T.3.3/.idea/
+Lab3/Lab3_T.3.4/cmake-build-debug/
+Lab3/Lab3_T.3.4/.idea/
+Lab3/Lab3_T.3.5/cmake-build-debug/
+Lab3/Lab3_T.3.5/.idea/
+Lab3/Lab3_T.3.6/cmake-build-debug/
+Lab3/Lab3_T.3.6/.idea/
+Lab3/Lab3_T.3.7/cmake-build-debug/
+Lab3/Lab3_T.3.7/.idea/
+Lab3/Lab3_T.3.8/cmake-build-debug/
+Lab3/Lab3_T.3.8/.idea/
+
+
+
+
+
+*.cmake
+*.xml
+*.iml
+*.txt
+*.check_cache
+*.log
+*.marks
+*.make
+*.includecache
+*.internal
+*.cbp
+*.bin
+*.name

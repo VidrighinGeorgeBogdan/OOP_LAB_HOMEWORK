@@ -3,81 +3,73 @@
 
 using namespace std;
 
-class Engine{
+class RestaurantWaiters{
 public:
-    string serial;
-    int serialnumber;
-    Engine(string a, int b){
-        this->serial = a;
-        this->serialnumber = b;
+    int waiternumber;
+    RestaurantWaiters(int b){
+        this->waiternumber = b;
     }
 
-    int getSerialNumber(){
-            return this->serialnumber;
-    }
-    string getSerial(){
-            return this->serial;
+    int getWaiterNumber(){
+            return this->waiternumber;
     }
 };
 
-class EnginePart{
+class RestaurantCapacity{
 public:
-    int part;
-    EnginePart(int a){
-        this->part = a;
+    int capacity;
+    RestaurantCapacity(int a){
+        this->capacity = a;
     }
 
-    int getEnginePart(){
-        return this->part;
+    int getRestaurantCapacity(){
+        return this->capacity;
     }
 };
 
-class EngineScrews{
-
+class RestaurantCooks{
 public:
-    int numberofscrews;
-    EngineScrews(int a){
-        this->numberofscrews = a;
+    int cooknumber;
+    RestaurantCooks(int a){
+        this->cooknumber = a;
     }
-    int getEngineScrews(){
-        return this->numberofscrews;
+    int getRestaurantCooks(){
+        return this->cooknumber;
     }
 };
 
-class Car{
+class Restaurant{
 protected:
     string name;
     int year;
-    Engine *engineinfo;
-    EnginePart *enginepartinfo;
-    EngineScrews *enginescrewsinfo;
-
+    RestaurantCooks *cooks;
+    RestaurantCapacity *capacity;
+    RestaurantWaiters *waiters;
 public:
-    Car(string a, int b,Engine* c,EnginePart* d,EngineScrews* e){
+    Restaurant(string a, int b,RestaurantCooks* c,RestaurantCapacity* d,RestaurantWaiters* e){
         this->name = a;
         this->year = b;
-        this->engineinfo = c;
-        this->enginepartinfo = d;
-        this->enginescrewsinfo = e;
+        this->cooks = c;
+        this->capacity = d;
+        this->waiters = e;
     }
 
     void displayInfo(){
-        cout<<"Car name : "<<name<<endl;
-        cout<<"Car year : "<<year<<endl;
-        cout<<"Engine serial : "<<engineinfo->getSerial()<<endl;
-        cout<<"Engine serial number : "<<engineinfo->getSerialNumber()<<endl;
-        cout<<"Engine Parts number : "<<enginepartinfo->getEnginePart()<<endl;
-        cout<<"Engine Part Screws : "<<enginescrewsinfo->getEngineScrews()<<endl;
+        cout<<"Restaurant name : "<<name<<endl;
+        cout<<"Restaurant founding year : "<<year<<endl;
+        cout<<"Cook number : "<<cooks->getRestaurantCooks()<<endl;
+        cout<<"Restaurant Capacity : "<<capacity->getRestaurantCapacity()<<endl;
+        cout<<"Waiter number : "<<waiters->getWaiterNumber()<<endl;
     }
 };
 
 
 int main() {
 
-    EngineScrews *es = new EngineScrews(4);
-    EnginePart *ep = new EnginePart(2);
-    Engine *eng = new Engine("AAH823MN9MNL4",65);
-    Car *car = new Car("Audi", 2010, eng, ep,es);
-    car->displayInfo();
+    RestaurantCooks *rc = new RestaurantCooks(4);
+    RestaurantCapacity *rcp = new RestaurantCapacity(200);
+    RestaurantWaiters *rw = new RestaurantWaiters(16);
+    Restaurant *restaurant = new Restaurant("Fancy Restaurant", 2010, rc, rcp,rw);
+    restaurant->displayInfo();
     return 0;
 }

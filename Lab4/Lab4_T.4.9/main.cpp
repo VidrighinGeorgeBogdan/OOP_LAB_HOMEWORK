@@ -18,12 +18,12 @@ class B {
     A *a;
     string s;
 public:
-    B(int i2, string s2) : *a(i2,s2), s("init value for s in A") {}
+    B(int i2, string s2) : *a(i2,s2) s("init value for s in A") {}
 
     string getS() {
         return this->s;
     }
-    A * getA() {
+    A* getA() {
         return this->a;
     }
 };

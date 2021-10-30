@@ -35,15 +35,24 @@ public:
     string getDoc3(){
         return doc3;
     };
+    string getAllDocuments(){
+        cout<<doc1<<endl;
+        cout<<doc2<<endl;
+        cout<<doc3<<endl;
+    }
 };
 
 int main() {
-    Documents *doc = new Documents("Document 1","Document 2","Document3");
+    Documents *doc = new Documents("Document 1","Document 2","Document 3");
     cout<<"Can i see Document 1?"<<endl;
     cout<<doc->getDoc1()<<endl;
     cout<<"Can i see Document 2?"<<endl;
     cout<<doc->getDoc2()<<endl;
     cout<<"Can i see Document 3?"<<endl;
-    cout<<doc->getDoc3();
+    cout<<doc->getDoc3()<<endl;
+    cout<<endl;
+    cout<<"Can i see all your documents please ?"<<endl;
+    cout<<doc->getAllDocuments();
+
     return 0;
 }

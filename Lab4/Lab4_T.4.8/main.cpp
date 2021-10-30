@@ -5,17 +5,13 @@ using namespace std;
 class Sofer{
 public:
     string nume;
-    int soferCounter = 0;
 
-    Sofer(){
+    Sofer(){}
+    Sofer(string nume){
+        this->nume = nume;
     }
     void setNume(string nume){
         this->nume = nume;
-        soferCounter++;
-    }
-
-    int getCounter(){
-        return this->soferCounter;
     }
 
     string getNume(){
@@ -27,31 +23,28 @@ public:
 class Masina{
 private:
     int varsta;
-    Sofer sofer;
 public:
+    Sofer* sofer;
     Masina(int varsta, string sofer){
         this->varsta = varsta;
-        this->sofer.setNume(sofer);
+        this->sofer = new Sofer(sofer);
     }
 
     int getVarsta(){
         return this->varsta;
     }
 
-    Sofer getSofer(){
+    Sofer* getSofer(){
         return this->sofer;
     };
 
-    int counter = sofer.getCounter();
 
-    void exchangeSofer(string a, string b){
-        string aux;
-        aux = a;
-        a = b;
-        b = aux;
-
+    void exchangeSofer(Masina* m1,Masina* m2 )
+    {
+        Sofer* aux = new Sofer(m1->getSofer()->getNume());
+        m1->sofer = m2->getSofer();
+        m2->sofer = aux;
     }
-
 };
 
 int main() {
@@ -60,11 +53,11 @@ int main() {
     Masina *m2 = new Masina(1,"Sofer2");
 
     cout<<m1->getVarsta()<<endl;
-    cout<<m1->getSofer().getNume()<<endl;
+    cout<<m1->getSofer()->getNume()<<endl;
     cout<<endl;
-    m1->exchangeSofer(m1->getSofer().getNume(), m2->getSofer().getNume());
+    m1->exchangeSofer(m1, m2);
 
-    cout<<m1->getSofer().getNume()<<endl;
-    cout<<m2->getSofer().getNume()<<endl;
+    cout<<m1->getSofer()->getNume()<<endl;
+    cout<<m2->getSofer()->getNume()<<endl;
     return 0;
 }
